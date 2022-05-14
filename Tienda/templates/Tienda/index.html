@@ -1,0 +1,126 @@
+{% extends 'Tienda/plantillaTienda.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"defer></script>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/index.css">
+  <title>Tienda animales felices</title>
+  <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+  {% block contenido %}
+  <!--==========================================================================================-->
+  <!-- carrusel-->
+  <!--==========================================================================================-->
+  <div class="container" id="sliderbox">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active" data-bs-interval="3000">
+          <img src="../img/slider/foto1.jpg" class="d-block w-100" alt="carr1" id="foto">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="../img/slider/foto2.jpg" class="d-block w-100" alt="carr2" id="foto">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="../img/slider/foto3.jpg" class="d-block w-100" alt="carr3" id="foto">
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#carousel1" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+      </a>
+      <a class="carousel-control-next" href="#carousel1" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+      </a>
+
+    </div>
+  </div>
+
+  <!--==========================================================================================-->
+  <!-- carrusel final-->
+  <!--==========================================================================================-->
+
+
+  <!--==========================================================================================-->
+  <!-- Intro-->
+  <!--==========================================================================================-->
+  <div class="container" >
+    <section>
+      <img src="../img/tienda.png" height="500px" width="100%" alt="">
+    </section>
+  </div>
+  <!--==========================================================================================-->
+  <!--final--Intro-->
+  <!--==========================================================================================-->
+
+  <!--==========================================================================================-->
+  <!--Categorias-->
+  <!--==========================================================================================-->
+  <section id="distancia-seccion1">
+    <div class="container">
+
+      <div class="card " style="background:#725bff">
+        <div class="card-body">
+          <h5 class="card-title fs-5 mt-4 px-4 pb-1">Juguetes de Perros</h5>
+          <button class="button button1"><a href="../urls/perros.html" style="color: #ffffff">Ir a comprar</a></button>
+        </div>
+        <img src="../img/slider/cuidados3.png" class="card-img-top" alt="...">
+      </div>
+
+      <div class="card" style="background:rgba(255, 51, 36, 1) 10%">
+        <div class="card-body">
+          <h5 class="card-title fs-5 mt-4 px-4 pb-1">OFERTAS</h5>
+          <button class="button button2"><a href="../urls/Ofertas.html" style="color: #ffffff">Ir a comprar</a></button>
+        </div>
+        <img src="../img/slider/cuidados2.png" class="card-img-top" alt="...">
+      </div>
+
+      <div class="card" style="background:#b1e80c">
+        <div class="card-body">
+          <h5 class="card-title fs-5 mt-4 px-4 pb-1">Juguetes de Gatos</h5>
+          <button class="button button3"><a href="../urls/gatos.html" style="color: #ffffff">Ir a comprar</a></button>
+        </div>
+        <img src="../img/slider/cuidados1.png" class="card-img-top" alt="...">
+      </div>
+    </div>
+  </section>
+  <!--==========================================================================================-->
+  <!--FINAL--Categorias-->
+  <!--==========================================================================================-->
+
+
+  <!--==========================================================================================-->
+  <!--Mapa-->
+  <!--==========================================================================================-->
+
+  <div class="container">
+    <div class="col">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.084395610342!2d-70.66875768480341!3d-33.34274488080497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c7a04d417cfb%3A0xd41cdbd240479569!2sAltos%20del%20Valle%2C%20Huechuraba%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1651607185365!5m2!1ses-419!2scl" 
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+
+  {% endblock contenido %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
