@@ -28,7 +28,7 @@ def gatos (request):
 def Login (request):
     return render(request, 'Tienda/Login.html')
 
-def Ofertas (request):
+def ofertas (request):
     return render(request, 'Tienda/Ofertas.html')
 
 def perros (request):

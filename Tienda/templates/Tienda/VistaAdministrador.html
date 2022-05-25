@@ -20,13 +20,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 VistaAdministrador">
-                <a href="agregarProducto.html" class="btn btn-primary" role="button">Agregar Productos</a>
+                <a href="{% url 'agregarProducto' %}" class="btn btn-primary" role="button">Agregar Productos</a>
             </div>
             <div class="col-md-12 VistaAdministrador">
-                <a href="EditarProducto.html" class="btn btn-primary" role="button">Editar productos</a>
+                <a href="{% url 'EditarPerfil' %}" class="btn btn-primary" role="button">Editar productos</a>
             </div>
             <div class="col-md-12 VistaAdministrador">
-                <a href="EliminarProducto.html" class="btn btn-primary" role="button">Eliminar Productos</a>
+                <a href="{% url 'EliminarProducto' %}" class="btn btn-primary" role="button">Eliminar Productos</a>
             </div>
         </div>
     </div>

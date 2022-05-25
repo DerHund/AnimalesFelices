@@ -17,7 +17,7 @@
 <body>
     {% block contenido %}
     <div class="d-flex justify-content-center Formularios">
-        <form action="EditarPerfil.html">
+        <form action="{% url 'EditarPerfil' %}">
             <div class="form-group contenidos">
                 <label for="email">Correo electronico:</label>
                 <input type="email" class="form-control" id="email" required>
@@ -26,7 +26,7 @@
                 <div class="checkbox">
                     <label><input type="checkbox"> Recuerdame</label>
                 </div>
-                <a href="../urls/RecuperarContrasena.html">Recuperar contraseña</a>
+                <a href="{% url 'RecuperarContrasena' %}">Recuperar contraseña</a>
             </div>
             
 
@@ -34,7 +34,7 @@
         </form>
     </div>
 
-    <a href="../urls/VistaAdministrador.html" ><-Vista de administrador</a>
+    <a href="{% url 'VistaAdministrador' %}" ><-Vista de administrador</a>
 
       {% endblock contenido %}
 

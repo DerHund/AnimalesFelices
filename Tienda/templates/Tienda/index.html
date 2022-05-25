@@ -77,7 +77,7 @@
       <div class="card " style="background:#725bff">
         <div class="card-body">
           <h5 class="card-title fs-5 mt-4 px-4 pb-1">Juguetes de Perros</h5>
-          <button class="button button1"><a href="../urls/perros.html" style="color: #ffffff">Ir a comprar</a></button>
+          <button class="button button1"><a href="{% url 'perros' %}" style="color: #ffffff">Ir a comprar</a></button>
         </div>
         <img src="{% static 'Tienda/img/slider/cuidados3.png' %}" class="card-img-top" alt="...">
       </div>
@@ -85,7 +85,7 @@
       <div class="card" style="background:rgba(255, 51, 36, 1) 10%">
         <div class="card-body">
           <h5 class="card-title fs-5 mt-4 px-4 pb-1">OFERTAS</h5>
-          <button class="button button2"><a href="../urls/Ofertas.html" style="color: #ffffff">Ir a comprar</a></button>
+          <button class="button button2"><a href="{% url 'ofertas' %}" style="color: #ffffff">Ir a comprar</a></button>
         </div>
         <img src="{% static 'Tienda/img/slider/cuidados2.png' %}" class="card-img-top" alt="...">
       </div>
@@ -93,7 +93,7 @@
       <div class="card" style="background:#b1e80c">
         <div class="card-body">
           <h5 class="card-title fs-5 mt-4 px-4 pb-1">Juguetes de Gatos</h5>
-          <button class="button button3"><a href="../urls/gatos.html" style="color: #ffffff">Ir a comprar</a></button>
+          <button class="button button3"><a href="{% url 'gatos' %}" style="color: #ffffff">Ir a comprar</a></button>
         </div>
         <img src="{% static 'Tienda/img/slider/cuidados1.png' %}" class="card-img-top" alt="...">
       </div>

@@ -20,11 +20,11 @@
     <!------------------------------------------------------------->
     <nav class="navbar navbar-expand-lg navbar-light  p-3" id="menu">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'Tienda/img/logo.jpg' %}" alt="Logo" class="rounded-circle logo" href="../urls/index.html">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'Tienda/img/logo.jpg' %}" alt="Logo" class="rounded-circle logo" href="{% url 'index' %}">
             </a>
                 
-            <a class="navbar-brand" href="../urls/index.html"> <span class="text-primary fs-5 fw-bold">Animales Felices</span></a>
+            <a class="navbar-brand" href="{% url 'index' %}"> <span class="text-primary fs-5 fw-bold">Animales Felices</span></a>
               
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" ></span>
@@ -32,18 +32,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <div class="categoria">
-                        <a href="../urls/gatos.html" style="color: #000000">Gatos</a>
+                        <a href="{% url 'gatos' %}" style="color: #000000">Gatos</a>
                     </div>
     
                     <div class="categoria">
-                        <a href="../urls/perros.html" style="color: #000000">Perros</a>
+                        <a href="{% url 'perros' %}" style="color: #000000">Perros</a>
                     </div>
                     
                     <div class="categoria">
-                        <a href="../urls/Ofertas.html" style="color: #000000">Ofertas</a>
+                        <a href="{% url 'ofertas' %}" style="color: #000000">Ofertas</a>
                     </div>
                 </ul>   
-            <a class="btn btn-primary boton" href="Carrito.html" role="button">
+            <a class="btn btn-primary boton" href="{% url 'carrito' %}" role="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-cart" viewBox="0 0 16 16">
                     <path
@@ -51,7 +51,7 @@
                 </svg>
             </a>
     
-            <a class="btn btn-primary boton" href="Registro.html" role="button">
+            <a class="btn btn-primary boton" href="{% url 'registro' %}" role="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -59,7 +59,7 @@
                 Registrarse
             </a>
     
-            <a class="btn btn-primary boton" href="Login.html" role="button">
+            <a class="btn btn-primary boton" href="{% url 'login' %}" role="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -170,7 +170,7 @@
                                             <div role="tabpanel" id="home">
                                                 <h2>Producto Descripcion</h2>  
                                                 {% block descripcionProducto %}
-                                                {% endblock descrionProducto %}
+                                                {% endblock descripcionProducto %}
                                             </div>
                                         </div>
                                     </div>

@@ -17,7 +17,7 @@
     {% block contenido %}
 
     <div class="d-flex justify-content-center Formularios">
-        <form id="Miformulario" action="EditarPerfil.html">
+        <form id="Miformulario" action="{% url 'EditarPerfil' %}">
             <div class="form-group contenidos">
                 <label for="email">Correo electronico:</label>
                 <input type="email" class="form-control" id="email1" required>
@@ -42,7 +42,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="../js/verificarClave.js"></script>
+    <script src="{% static 'Tienda/js/verificarClave.js' %}"></script>
+
   </body>
 
 </html>
