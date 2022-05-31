@@ -14,52 +14,19 @@
 </head>
 
 <body>
-   {% block contenido %}
+    {% block contenido %}
+    <form method="post" action="" id="formulario">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_table}}
+        </div>
+        <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+        <input type="reset" class="btn btn-primary" id="limpiar" value ="Limpiar">
+        <div id="error" class="alert alert-danger" role="alert"></div>
 
-    <a href="{% url 'VistaAdministrador' %}" >-Volver atras</a>
-
-
-    <div class="d-flex justify-content-center">
-        <form role="formulario">
-            <div class="form-group">
-                <h4>Ingresa el codigo del producto a editar</h4>
-                <label for="CodigoProducto">Codigo del producto:</label>
-                <input type="text" class="form-control" id="CodigoProducto" required>
-            </div>
-            <input type="submit" class="btn btn-success MargenArriba" value="Enviar"></a>
-        </form>
-    </div>
-
-    <div class="container">
-        <form role="formulario">
-            <div class="row CarritoCompras">
-
-                <div class="col-md-6">
-                    <label for="Titulo">Titulo:</label>
-                    <input type="text" class="form-control" id="Titulo" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="Imagen">Imagen:</label>
-                    <input type="file" name="imagen1" required>
-                </div>
-                <div class="col-md-12">
-                    <label for="Descripcion">Descripcion:</label>
-                    <input type="texto" class="form-control" id="Descripcion" required>
-                </div>
-                <div class="col-md-12">
-                    <label for="Cantidad">Cantidad:</label>
-                    <input type="text" class="form-control" id="Cantidad" required>
-                </div>
-                <div class="col-md-12">
-                    <label for="Precio">Precio:</label>
-                    <input type="text" class="form-control" id="Precio" required>
-                </div>
-
-            </div>
-            
-            <input type="submit" class="btn btn-success MargenArriba" value="Enviar"></a>
-        </form>
-
+    </form>
+    <div class="alert alert-success" role="alert">
+        {{mensaje}}
     </div>
 
     {% endblock contenido %}

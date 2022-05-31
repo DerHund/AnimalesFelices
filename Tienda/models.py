@@ -40,14 +40,14 @@ class Usuario(models.Model):
     nombreUsuario = models.CharField(max_length=30, verbose_name='Nombre del usuario')
     apellidoUsuario = models.CharField(max_length=30, verbose_name='Apellido del usuario')
     claveUsuario = models.CharField(max_length=30, verbose_name='Clave del usuario')
-    emailUsuario = models.CharField(max_length=30, verbose_name='Email del usuario')
+    emailUsuario = models.CharField(max_length=50, verbose_name='Email del usuario')
     telefonoUsuario = models.IntegerField(verbose_name='Telefono del usuario')
-    direccionUsuario = models.CharField(max_length=30, verbose_name='Direccion del usuario')
-    regionUsuario = models.CharField(max_length=30, verbose_name='Region del usuario')
-    comunaUsuario = models.CharField(max_length=30, verbose_name='Comuna del usuario')
-    codigoPostalUsuario = models.CharField(max_length=30, verbose_name='Codigo postal Usuario')
+    direccionUsuario = models.CharField(max_length=50, verbose_name='Direccion del usuario')
+    regionUsuario = models.CharField(max_length=50, verbose_name='Region del usuario')
+    comunaUsuario = models.CharField(max_length=50, verbose_name='Comuna del usuario')
+    codigoPostalUsuario = models.IntegerField(verbose_name='Codigo postal Usuario')
 
     tipoUsuario = models.ForeignKey(TipoUsuario,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.idUsuario
+        return self.nombreUsuario

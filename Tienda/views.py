@@ -1,11 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
+from .models import Productos
+from django.db.models import Q
+from .forms import ProductosForm
 
 # Create your views here.
 def inicio (request):
     return render(request, 'Tienda/index.html')
 
 def agregarProducto (request):
-    return render(request, 'Tienda/agregarProducto.html')
+    datos = {
+        'form' : ProductosForm()
+    }
+
+    if request.method =='POST':
+        formulario = ProductosForm(request.POST,request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = "Guardado con exito"
+        else:
+            datos['mensaje'] = "Error al guardar"
+
+    return render(request, 'Tienda/agregarProducto.html' ,datos)
 
 def Articulo (request):
     return render(request, 'Tienda/Articulo.html')
@@ -16,23 +31,59 @@ def Carrito (request):
 def EditarPerfil (request):
     return render(request, 'Tienda/EditarPerfil.html')
 
-def EditarProducto (request):
-    return render(request, 'Tienda/EditarProducto.html')
+def EditarProducto (request , id):
+    producto = Productos.objects.get(idProducto=id)
+    datos={
+        'form': ProductosForm(instance=producto)
+    }
+    if request.method =='POST':
+        formulario =ProductosForm(data=request.POST ,instance=producto)##Error al guardar imagenes nuevas
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = "Guardado con exito"
+        else:
+            datos['mensaje'] = "Error al guardar" 
+
+    return render(request, 'Tienda/EditarProducto.html',datos)
+
 
 def EliminarProducto (request):
-    return render(request, 'Tienda/EliminarProducto.html')
+    return render(request , 'Tienda/EliminarProducto.html')
+
+def EliminarProductos (id):
+    producto = Productos.objects.get(idProducto=id)
+    producto.delete()
+    return redirect(to="index")
+
+
 
 def gatos (request):
-    return render(request, 'Tienda/gatos.html')
+    productos = Productos.objects.filter(tipoProducto=1).filter(~Q(cantidadProducto=0))
+
+    datos = {
+        'productos': productos
+    }
+
+    return render(request, 'Tienda/gatos.html' , datos)
 
 def Login (request):
     return render(request, 'Tienda/Login.html')
 
 def ofertas (request):
-    return render(request, 'Tienda/Ofertas.html')
+    productos = Productos.objects.filter(tipoProducto=3).filter(~Q(cantidadProducto=0))
+
+    datos = {
+        'productos': productos
+    }
+    return render(request, 'Tienda/Ofertas.html',datos)
 
 def perros (request):
-    return render(request, 'Tienda/perros.html')
+    productos = Productos.objects.filter(tipoProducto=2).filter(~Q(cantidadProducto=0))
+
+    datos = {
+        'productos': productos
+    }
+    return render(request, 'Tienda/perros.html',datos)
 
 def RecuperarContrasena (request):
     return render(request, 'Tienda/RecuperarContrasena.html')

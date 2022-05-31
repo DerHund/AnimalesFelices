@@ -16,38 +16,21 @@
 
 <body>
     {% block contenido %}
-    <a href="{% url 'VistaAdministrador' %}" >-Volver atras</a>
-
-
-    <div class="container">
-        <form role="formulario">
-            <div class="row CarritoCompras">
-
-                <div class="col-md-6">
-                    <label for="Titulo">Titulo:</label>
-                    <input type="text" class="form-control" id="Titulo" required>
-                </div>
-                <div class="col-md-6">
-                    <input type="file" name="imagen1" />
-                    
-                </div>
-                <div class="col-md-12">
-                    <label for="Descripcion">Descripcion:</label>
-                    <input type="texto" class="form-control" id="Descripcion" required>
-                </div>
-                <div class="col-md-12">
-                    <label for="Cantidad">Cantidad:</label>
-                    <input type="text" class="form-control" id="Cantidad" required> 
-                </div>
-                <div class="col-md-12">
-                    <label for="Precio">Precio:</label>
-                    <input type="text" class="form-control" id="Precio" required>
-                </div>
-                
+    <div class="row">
+        <form method="post" action="" id="formulario" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_table }}
             </div>
-            <input type="submit" class="btn btn-success MargenArriba" value="Enviar"></a>
-        </form>
+        
+        <input type = "submit" class = "btn btn-danger" id="enviar" value ="Enviar">
+        <input type = "reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+        <div id = "error" class="aler alert-danger" role="alert"></div>
+       </form>
 
+       <div class = "alert alert-success" role="alert">
+           {{ mensaje }}
+       </div>
     </div>
 
     {% endblock contenido %}
