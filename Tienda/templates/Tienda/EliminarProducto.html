@@ -14,24 +14,20 @@
 
 <body>
     {% block contenido %}
-    <div class="d-flex justify-content-center  VistaAdministrador">
-        <form role="formulario">
-            <div class="form-group">
-                <h4>Ingresa el codigo del producto a eliminar</h4>
-                <label for="CodigoProducto">Codigo del producto:</label>
-                <input type="number" class="form-control" id="CodigoProducto" required>
-            </div>
-            
-            <script> 
+    <form method="post" action="" id="formulario">
+        {% csrf_token %}
 
-                {
-                  let inputValue = document.getElementByid("CodigoProducto").value; 
-                }
-                
-            </script> 
+        <div class="form-group">
+            {{ form.as_table}}
+        </div>
 
-            <a class="btn btn-primary" href="{% url 'EliminarProductos' CodigoProducto %}" placeholder="Eliminar"></a>
-        </form>
+        <input type="submit" class="btn btn-danger" id="enviar" value="Eliminar">
+        <input type="reset" class="btn btn-primary" id="limpiar" value ="Limpiar">
+        <div id="error" class="alert alert-danger" role="alert"></div>
+    
+    </form>
+    <div class="alert alert-success" role="alert">
+        {{mensaje}}
     </div>
     {% endblock contenido %}
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path 
-from Tienda.views import  EliminarProductos,ofertas,RecuperarContrasena  ,RecuperarContrasena, VistaAdministrador ,inicio,perros,gatos,Registro,Login,Articulo,EditarProducto,EliminarProducto,EditarPerfil,agregarProducto,Carrito
+from Tienda.views import  ListarProductos,ofertas,RecuperarContrasena  ,RecuperarContrasena, VistaAdministrador ,inicio,perros,gatos,Registro,Login,Articulo,EditarProducto,EliminarProducto,EditarPerfil,agregarProducto,Carrito
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,13 +11,11 @@ urlpatterns = [
     path('registro/',Registro,name="registro"),
     path('login/',Login,name="login"),
     path('articulo/',Articulo,name="Articulo"),
+    path('listarProductos/',ListarProductos,name="ListarProductos"),
 
-
-    path('eliminarProducto/',EliminarProducto,name="EliminarProducto"),
+    path('eliminarProducto/<id>',EliminarProducto,name="EliminarProducto"),
 
     path('editarProducto/<id>',EditarProducto,name="EditarProducto"),
-    path('EliminarProductos/<id>',EliminarProductos,name="EliminarProductos"),
-
 
 
     path('editarPerfil/',EditarPerfil,name="EditarPerfil"),

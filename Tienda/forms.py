@@ -7,3 +7,9 @@ class ProductosForm(ModelForm):
     class Meta:
         model = Productos
         fields =['idProducto','nombreProducto','precioProducto','cantidadProducto','descripcionProducto','foto','tipoProducto']
+
+class ProductosFormEliminar(ModelForm):
+
+    class Meta:
+        model = Productos
+        fields =['idProducto']

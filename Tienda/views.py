@@ -47,13 +47,20 @@ def EditarProducto (request , id):
     return render(request, 'Tienda/EditarProducto.html',datos)
 
 
-def EliminarProducto (request):
-    return render(request , 'Tienda/EliminarProducto.html')
-
-def EliminarProductos (id):
+def EliminarProducto (request,id):
     producto = Productos.objects.get(idProducto=id)
-    producto.delete()
-    return redirect(to="index")
+    datos={
+        'form': ProductosForm(instance=producto)
+    }
+    if request.method =='POST':
+        formulario =ProductosForm(data=request.POST ,instance=producto)##Error al guardar imagenes nuevas
+        if formulario.is_valid():
+            producto.delete()
+            datos['mensaje'] = "Eliminado con exito"
+        else:
+            datos['mensaje'] = "Error al Eliminar" 
+
+    return render(request , 'Tienda/EliminarProducto.html',datos)
 
 
 
@@ -93,3 +100,10 @@ def Registro (request):
 
 def VistaAdministrador (request):
     return render(request, 'Tienda/VistaAdministrador.html')
+
+def ListarProductos(request):
+    productos=Productos.objects.all()
+    datos={
+        'productos':productos
+    }
+    return render(request ,'Tienda/ListarProductos.html',datos)
