@@ -1,7 +1,7 @@
 from django.shortcuts import render ,redirect
 from .models import Productos
 from django.db.models import Q
-from .forms import ProductosForm
+from .forms import ProductosForm 
 
 # Create your views here.
 def inicio (request):
