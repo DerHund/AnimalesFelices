@@ -9,7 +9,7 @@ class ProductosForm(ModelForm):
         fields =['idProducto','nombreProducto','precioProducto','cantidadProducto','descripcionProducto','foto','tipoProducto']
 
 class RegistroUsuarioForm(ModelForm):
-
+    clave2 = forms.CharField(label='Repetir contraseña', max_length=100)
     class Meta:
         model = Usuario
-        fields =['idUsuario','nombreUsuario','apellidoUsuario','claveUsuario','emailUsuario','telefonoUsuario','direccionUsuario','regionUsuario','comunaUsuario','codigoPostalUsuario','tipoUsuario']
+        fields =['emailUsuario','claveUsuario']

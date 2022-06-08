@@ -1,13 +1,3 @@
-
-.coste_producto{
-    font-size: 200%;
-}
-.logo{
-    width: 70%;
-    max-width: 75px;
-    height: 70%;
-    max-height: 75px;
-}
 .compra{
     justify-content: center;
 }
@@ -19,45 +9,13 @@ body{
  
 }
 
-.compra a{
-    text-decoration:  none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    padding-top: 5px;
-
-
-    display: block;
-    width: 78px;
-    height: 35px;
-    background-color: #0d6efd;
-    border-radius: 16px;
-    
-
-    transition: 1s;
-    -o-webkit-transition: 1s;
-    transition: 1s;
-    -ms-transition: 1s;
-}
-
-.navbar{
-    background-color: #afe47e;
-}
-
-.compra a:hover{
-    background-color: rgba(0, 26, 255, 0.74);
-    width: 95px;
-}
 
 .distancia{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#containerfinal{
-    padding-bottom: 3px;
-}
+
 
 .categoria{
     margin: 3px;
@@ -71,6 +29,26 @@ body{
 
 
 
-.Formularios{
-    margin-top: 7%;
+.MargenSuperior{
+    margin-top: 5%;
+}
+.MargenInferior{
+    margin-bottom: 5%;
+}
+.CentrarDatos{
+    text-align: center;
+    align-items: center;
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    border: 5px solid #000;
+}
+
+
+.cardimagenes{
+   padding: 5%;
 }

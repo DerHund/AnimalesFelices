@@ -1,7 +1,15 @@
+from datetime import timezone
 from django.shortcuts import render ,redirect
-from .models import Productos
+from .models import Carritos, Productos
 from django.db.models import Q
-from .forms import ProductosForm 
+from .forms import ProductosForm
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 def inicio (request):
@@ -22,11 +30,14 @@ def agregarProducto (request):
 
     return render(request, 'Tienda/agregarProducto.html' ,datos)
 
-def Articulo (request):
-    return render(request, 'Tienda/Articulo.html')
+def Articulo (request,id):
+    producto = Productos.objects.get(idProducto=id)
+    datos = {
+        'productos': producto
+    }
 
-def Carrito (request):
-    return render(request , 'Tienda/Carrito.html')
+    return render(request, 'Tienda/Articulo.html',datos)
+
 
 def EditarPerfil (request):
     return render(request, 'Tienda/EditarPerfil.html')
@@ -73,8 +84,6 @@ def gatos (request):
 
     return render(request, 'Tienda/gatos.html' , datos)
 
-def Login (request):
-    return render(request, 'Tienda/Login.html')
 
 def ofertas (request):
     productos = Productos.objects.filter(tipoProducto=3).filter(~Q(cantidadProducto=0))
@@ -92,11 +101,8 @@ def perros (request):
     }
     return render(request, 'Tienda/perros.html',datos)
 
-def RecuperarContrasena (request):
-    return render(request, 'Tienda/RecuperarContrasena.html')
 
-def Registro (request):
-    return render(request, 'Tienda/Registro.html')
+
 
 def VistaAdministrador (request):
     return render(request, 'Tienda/VistaAdministrador.html')
@@ -107,3 +113,28 @@ def ListarProductos(request):
         'productos':productos
     }
     return render(request ,'Tienda/ListarProductos.html',datos)
+
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/registro.html"
+
+def agregarAlCarrito(request , id):
+    productos=Productos.objects.get(idProducto=id)
+    p=Carritos(producto=productos,cantidad=1)
+    p.save()
+    return redirect('carrito')
+
+def carrito(request):
+    objetos=Carritos.objects.all()
+    datos={
+        'objetos':objetos
+    }
+    return render(request, 'Tienda/carrito.html',datos)
+
+def VaciarCarrito(request):
+    productos=Carritos.objects.all()
+    productos.delete()
+    return redirect('index')
+
+ 
