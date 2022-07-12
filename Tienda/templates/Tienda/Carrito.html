@@ -1,8 +1,10 @@
 {% extends 'Tienda/plantillaTienda.html' %}
-{% load static %}
-
 <!doctype html>
 <html lang="en">
+
+{% load static %}
+
+
 
 <head>
     {% block head %}
@@ -14,8 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" type="text/css" href='{% static "Tienda/css/index.css" %}'>
-  
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="stylesheet" type="text/css" href='{% static "Tienda/css/Productos.css" %}'>
     {% endblock head %}
 </head>
 
@@ -23,19 +24,20 @@
     {% block contenido %}
     <div class="container-fluid" style="text-align: center; background-color:bisque;"> 
         <div class="row">
-            <h1>Listado de productos</h1>
+            <h1>Carrito de compras</h1>
         </div>
         <div class="row">
-            <table border=5>
-
+            <table>
                 <tr>
-                    <td>Nombre</td> 
+                    <td>Imagen producto</td>
+                    <td>Nombre del producto</td> 
                     <td>precio</td> 
                     <td>cantidad</td> 
                 </tr>
                 {% for pr in objetos %}
                     
-                <tr>
+                <tr>                    
+                    <td><img class="imagen" src="{{  pr.producto.foto.url }}" alt={{pr.nombreProducto}}></td>
                     <td>{{pr.producto}}</td>
                     <td>${{pr.producto.precioProducto}}</td> 
                     <td>{{pr.cantidad}}</td> 

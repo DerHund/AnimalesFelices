@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-
+from cgi import test
 from pathlib import Path, os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Tienda',
+    'rest_framework.authtoken',
+    'rest_tienda',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +75,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AnimalesFelices.wsgi.application'
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 

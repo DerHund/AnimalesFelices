@@ -19,4 +19,6 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Tienda.urls')),
+    path('api/',include('rest_tienda.urls')),
+    path('accounts/',include('django.contrib.auth.urls')),
 ]
